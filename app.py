@@ -6,28 +6,28 @@ VIDEOS = [
   {
     'id': 1,
     'title': 'Chain Rule',
-    'level': 'Grade 12',
+    'level': '12',
     'difficulty': 'Hard',
     'topic': 'Calculus' 
   },
   {
     'id': 2,
     'title': 'Pythagorean Theorum',
-    'level': 'Grade 10',
+    'level': '10',
     'difficulty': 'Easy',
     'topic': 'Trigonometry' 
   },
   {
     'id': 3,
     'title': 'Binomial Distribution',
-    'level': 'Grade 11',
+    'level': '11',
     'difficulty': 'Medium',
     'topic': 'Statistics' 
   },
   {
     'id': 4,
     'title': 'Translations',
-    'level': 'Grade 11',
+    'level': '11',
     'difficulty': 'Medium',
     'topic': 'Affine Transformations' 
   },
