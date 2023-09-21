@@ -11,13 +11,29 @@
         height: 300px;
         object-fit: cover;
       }
+      h3 {text-align: center;}
+      
+     
     </style>
     <header> <img class="img-fluid"  id="banner"  src="https://tutor-website--mironmistry9.repl.co/static/Header.jpg" alt="Equations and Excellence Banner"; height="380"; width="100%"; >  </header>
     <body> 
       Hello students, this website is created to help you access and learn my math notes whenever needed bachas
+      <p>
+        <h3>
+        Recently Uploaded Videos
+        </h3>
+      </p>
       <div>
         {% for video in videos %}
-          <div>{{video['title']}}</div>
+          <div>
+            <h4>
+                {{video['title']}}
+            </h4>
+            <div>
+                <b>Grade:</b>
+                {{video['level']}}
+            </div>          
+        </div> 
         {% endfor %}
       </div>
     </body>
