@@ -12,7 +12,7 @@ VIDEOS = [
   },
   {
     'id': 2,
-    'title': 'Pythagorean Theorum',
+    'title': 'Pythagorean Theorem',
     'level': '10',
     'difficulty': 'Easy',
     'topic': 'Trigonometry' 
