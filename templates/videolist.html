@@ -1,0 +1,19 @@
+<div class="border-bottom row"; style="padding-bottom:8px; padding-top:8px; margin-bottom:16px; margin-left: 16px;",>
+    <div class="col-9">
+      <h4> 
+        {{video['title']}}
+      </h4>
+      <div>
+        <b>Grade:</b>
+        {{video['level']}}
+      </div>
+      {% if 'difficulty' in video %}
+      <div>
+        <b>Difficulty:</b> {{video['difficulty']}}
+      </div>
+      {% endif %}
+     </div>
+    <div class="col-3">
+<button type="button" class="btn btn-outline-primary">Watch</button>
+    </div>
+  </div>
