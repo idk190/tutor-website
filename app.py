@@ -1,10 +1,12 @@
 from flask import Flask, render_template, url_for
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 class Todo(db.Model):
    id = db.Column(db.Integer, primary_key=True)
@@ -44,7 +46,7 @@ VIDEOS = [
     'topic': 'Affine Transformations' 
   },
 ]
-@app.route("/")
+@app.route("/", methods=['POST', 'GET'])
 def hello_world():
     return render_template('home.html', videos=VIDEOS)
 
