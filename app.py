@@ -48,7 +48,15 @@ VIDEOS = [
 ]
 @app.route("/", methods=['POST', 'GET'])
 def hello_world():
-    return render_template('home.html', videos=VIDEOS)
+    return render_template('login.html', videos=VIDEOS)
+
+@app.route('/home', methods=['POST', 'GET'])
+def login():
+   return render_template('home.html', videos=VIDEOS)
+
+@app.route('/admin', methods=['POST', 'GET'])
+def admin():
+   return render_template('admin.html', videos=VIDEOS)
 
 if __name__=="__main__":
   app.run(host='0.0.0.0', debug=True)
