@@ -10,14 +10,29 @@
         width: "100%";
         height: 300px;
         object-fit: cover;
+        margin-bottom: 16px;
       }
       h3 {text-align: center;}
       
      
     </style>
-    <header> <img class="img-fluid"  id="banner"  src="https://tutor-website--mironmistry9.repl.co/static/Header.jpg" alt="Equations and Excellence Banner"; height="380"; width="100%"; >  </header>
+    <header>  </header>
     <body> 
-      Hello students, this website is created to help you access and learn my math notes whenever needed bachas
+      <nav class="navbar shadow-sm fixed-top bg-white">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="/static/Logo.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            EE Classes
+          </a>
+        </div>
+      </nav>
+      <div style="height:56px"></div>
+      <img class="img-fluid"  id="banner"  src="https://tutor-website--mironmistry9.repl.co/static/Header.jpg" alt="Equations and Excellence Banner"; height="380"; width="100%"; >
+      Hello students, this website is created to help you access and learn my math notes whenever needed bachas. Lorem ipsum dolor sit amet. Aut voluptate numquam ut laborum consequuntur et velit libero est quos voluptates. Vel quas optio rem quod ipsa sit accusamus repudiandae aut ratione velit qui sunt amet et dolores corporis hic molestiae odit. Ex consectetur eveniet vel consequatur voluptatem eum accusamus illum? Ex cupiditate consequatur ea dicta internos et beatae consequatur ea alias tempore et voluptatibus commodi.
+
+      Et sint eveniet sit rerum sunt est cumque velit non nemo autem et earum nobis qui velit dicta. Rem nemo voluptas sit pariatur quis et maxime quae. Et voluptate fugit aut voluptas ipsum et distinctio dolorem non earum libero rem quis vero. Aut officia dolor sed facere fuga et aliquam quia ut aliquam dicta.
+      
+      Et inventore quia in consequatur eligendi aut libero labore. Est nihil quaerat non voluptates voluptatem qui officiis totam. Qui officiis tempore quo labore dolore sit internos quia aut neque quasi ab doloribus cumque. At officiis voluptatem est aperiam doloribus qui cupiditate quaerat sed sint mollitia qui explicabo perferendis.
       <p>
         <h3>
         Recently Uploaded Videos
@@ -25,7 +40,7 @@
       </p>
       <div>
         {% for video in videos %}
-          <div class="border-bottom row"; style="padding-bottom:8px; padding-top:8px;",>
+          <div class="border-bottom row"; style="padding-bottom:8px; padding-top:8px; margin-bottom:16px",>
             <div class="col-9">
               <h4> 
                 {{video['title']}}
