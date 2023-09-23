@@ -16,9 +16,16 @@
 <div class="login-block">
     <h1>Welcome!</h1>
     <h4>Sign in as a</h4>
-    <button type="button" class="btn btn-outline-primary">Admin</button>
-    <button type="button" class="btn btn-outline-primary">Student</button>
-    
+    <button onclick="admin_signin()"type="button" class="btn btn-outline-primary">Admin</button>
+    <button onclick="student_signin()"type="button" class="btn btn-outline-primary">Student</button>
+        <div id="admin_password" style="display: none;">
+            <h2>Admin</h2>
+            <div class="form-element">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter the admin password">
+            </div>
+        </div>
 </div>
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
 </body>
 </html>
