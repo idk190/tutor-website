@@ -71,6 +71,18 @@ def admin():
    else:
       tasks = Todo.query.order_by(Todo.date_uploaded).all()
       return render_template('admin.html', videos=VIDEOS, tasks=tasks)
+   
+@app.route('/delete/<int:id>')
+def delete(id):
+   task_to_delete = Todo.query.get_or_404(id)
+
+   try: 
+      db.session.delete(task_to_delete)
+      db.session.commit()
+      return redirect('/admin')
+   except:
+      return 'There was a problem deleting that task'
+   
 
 if __name__=="__main__":
   app.run(host='0.0.0.0', debug=True)
