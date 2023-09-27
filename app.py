@@ -11,6 +11,8 @@ migrate = Migrate(app, db)
 class Todo(db.Model):
    id = db.Column(db.Integer, primary_key=True)
    content = db.Column(db.String(200), nullable=False)
+   difficulty = db.Column(db.String(200), nullable=False)
+   topic = db.Column(db.String(200), nullable=False)
    date_uploaded = db.Column(db.DateTime, default=datetime.utcnow)
 
    def __repr__(self):
@@ -59,7 +61,10 @@ def login():
 def admin():
    if request.method == 'POST':
       task_content = request.form['content']
-      new_task = Todo(content=task_content)
+      task_difficulty = request.form['difficulty']
+      task_topic = request.form['topic']
+      new_task = Todo(content=task_content, difficulty= task_difficulty, topic=task_topic)
+      
       
 
       try:
