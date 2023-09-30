@@ -8,15 +8,16 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///video.db'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-class Todo(db.Model):
+class Video_List(db.Model):
    id = db.Column(db.Integer, primary_key=True)
-   content = db.Column(db.String(200), nullable=False)
+   title = db.Column(db.String(200), nullable=False)
+   level = db.Column(db.String(200), nullable=False)
    difficulty = db.Column(db.String(200), nullable=False)
    topic = db.Column(db.String(200), nullable=False)
    date_uploaded = db.Column(db.DateTime, default=datetime.utcnow)
 
    def __repr__(self):
-      return '<Task %r>' % self.id
+      return f'{self.id} {self.title}'
 
 VIDEOS = [
   {
@@ -55,15 +56,16 @@ def hello_world():
 
 @app.route('/home', methods=['POST', 'GET'])
 def login():
+   listvid = Video_List.query.all()
    return render_template('home.html', videos=VIDEOS)
 
 @app.route('/admin', methods=['POST', 'GET'])
 def admin():
    if request.method == 'POST':
-      task_content = request.form['content']
+      task_title = request.form['title']
       task_difficulty = request.form['difficulty']
       task_topic = request.form['topic']
-      new_task = Todo(content=task_content, difficulty= task_difficulty, topic=task_topic)
+      new_task = Video_List(title= task_title, difficulty= task_difficulty, topic=task_topic)
       
       
 
@@ -74,12 +76,12 @@ def admin():
       except: 
          return 'There was an issue adding your task'
    else:
-      tasks = Todo.query.order_by(Todo.date_uploaded).all()
+      tasks = Video_List.query.order_by(Video_List.date_uploaded).all()
       return render_template('admin.html', videos=VIDEOS, tasks=tasks)
    
 @app.route('/delete/<int:id>')
 def delete(id):
-   task_to_delete = Todo.query.get_or_404(id)
+   task_to_delete = Video_List.query.get_or_404(id)
 
    try: 
       db.session.delete(task_to_delete)

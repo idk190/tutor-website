@@ -22,7 +22,7 @@
             </tr>
             {% for task in tasks %}
                 <tr>
-                    <td>{{ task.content }}</td>
+                    <td>{{ task.title }}</td>
                     <td>{{ task.difficulty }}</td>
                     <td>{{ task.topic }}</td>
                     <td>{{ task.date_uploaded.date()}}</td>
@@ -35,9 +35,9 @@
             {% endfor %}
         </table>
         <form action="/admin" method="POST">
-            <input type="text" name="content" id="content">
-            <input type="text" name="difficulty" id="content">
-            <input type="text" name="topic" id="content">
+            <input type="text" name="title" id="title">
+            <input type="text" name="difficulty" id="difficulty">
+            <input type="text" name="topic" id="topic">
             <input type="submit" value="Add Task">
             
         </form>
