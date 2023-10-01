@@ -14,17 +14,21 @@
 
         <table class="table table-bordered">
             <tr>
-                <th>Task</th>
+                <th>Title</th>
+                <th>Grade</th>
                 <th>Difficulty</th>
                 <th>Topic</th>
+                <th>Link</th>
                 <th>Added</th>
                 <th>Actions</th>
             </tr>
             {% for task in tasks %}
                 <tr>
                     <td>{{ task.title }}</td>
+                    <td>{{ task.level }}</td>
                     <td>{{ task.difficulty }}</td>
                     <td>{{ task.topic }}</td>
+                    <td>{{ task.link }}</td>
                     <td>{{ task.date_uploaded.date()}}</td>
                     <td>
                         <a href="/delete/{{task.id}}">Delete</a>
@@ -35,9 +39,11 @@
             {% endfor %}
         </table>
         <form action="/admin" method="POST">
-            <input type="text" name="title" id="title">
-            <input type="text" name="difficulty" id="difficulty">
-            <input type="text" name="topic" id="topic">
+            <input type="text" name="title" id="title" placeholder="Title">
+            <input type="text" name="level" id="level"placeholder="Grade">
+            <input type="text" name="difficulty" id="difficulty"placeholder="Difficulty">
+            <input type="text" name="topic" id="topic" placeholder="Topic">
+            <input type="text" name="link" id="link" placeholder="Link">
             <input type="submit" value="Add Task">
             
         </form>

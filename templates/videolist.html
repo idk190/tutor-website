@@ -7,11 +7,18 @@
         <b>Grade:</b>
         {{video['level']}}
       </div>
-      {% if 'difficulty' in video %}
       <div>
-        <b>Difficulty:</b> {{video['difficulty']}}
-      </div>
-      {% endif %}
+        <b>Difficulty:</b> 
+        {{video['difficulty']}}
+     </div>
+     <div>
+      <b>Topic:</b>
+      {{video['topic']}}
+     </div>
+     <div>
+      <b>Link:</b>
+      {{video['link']}}
+     </div>
      </div>
     <div class="col-3">
 <button type="button" class="btn btn-outline-primary">Watch</button>

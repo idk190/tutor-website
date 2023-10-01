@@ -15,28 +15,62 @@
       h3 {text-align: center;}
       
     </style>
-  </head>
-    <header>  </header>
-    <body> 
-      {% include 'navbar.html' %}
-      <img class="img-fluid"  id="banner"  src="https://tutor-website--mironmistry9.repl.co/static/Header.jpg" alt="Equations and Excellence Banner"; height="380"; width="100%"; >
-      <div style="margin-left: 8px">Hello Students, this website is created to help you access and learn my math notes whenever needed bachas. Lorem ipsum dolor sit amet. Aut voluptate numquam ut laborum consequuntur et velit libero est quos voluptates. Vel quas optio rem quod ipsa sit accusamus repudiandae aut ratione velit qui sunt amet et dolores corporis hic molestiae odit. Ex consectetur eveniet vel consequatur voluptatem eum accusamus illum? Ex cupiditate consequatur ea dicta internos et beatae consequatur ea alias tempore et voluptatibus commodi.
+  <script>
+    function search() {
+      // Declare variables
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById('input_id');
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myUL");
+      li = ul.getElementsByTagName('li');
+    
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+    </script>
+ </script>
+</head>
+<body> 
+ {% include 'navbar.html' %}
+ <img class="img-fluid" id="banner" src="https://tutor-website--mironmistry9.repl.co/static/Header.jpg" alt="Equations and Excellence Banner"; height="380"; width="100%"; >
+ <div class="input-group">
+    <input type="text" id="input_id" name="input_id" placeholder="Search" onkeyup="search()" aria-label="Search" aria-describedby="search-addon" />
+    <button type="submit" class="btn btn-outline-primary">search</button>
+    
+ </div>
+ 
+ <ul id="myUL">
+  {% for video in videos %}
+  <li><a href="#">{% include 'videolist.html' %}</a></li>
+  {% endfor %}
+</ul>
 
-      Et sint eveniet sit rerum sunt est cumque velit non nemo autem et earum nobis qui velit dicta. Rem nemo voluptas sit pariatur quis et maxime quae. Et voluptate fugit aut voluptas ipsum et distinctio dolorem non earum libero rem quis vero. Aut officia dolor sed facere fuga et aliquam quia ut aliquam dicta.
+ <br>
+    <div style="margin-left: 8px">Hello Students, this website is created to help you access and learn my math notes whenever needed bachas. Lorem ipsum dolor sit amet. Aut voluptate numquam ut laborum consequuntur et velit libero est quos voluptates. Vel quas optio rem quod ipsa sit accusamus repudiandae aut ratione velit qui sunt amet et dolores corporis hic molestiae odit. Ex consectetur eveniet vel consequatur voluptatem eum accusamus illum? Ex cupiditate consequatur ea dicta internos et beatae consequatur ea alias tempore et voluptatibus commodi.
+
+    Et sint eveniet sit rerum sunt est cumque velit non nemo autem et earum nobis qui velit dicta. Rem nemo voluptas sit pariatur quis et maxime quae. Et voluptate fugit aut voluptas ipsum et distinctio dolorem non earum libero rem quis vero. Aut officia dolor sed facere fuga et aliquam quia ut aliquam dicta.
       
-      Et inventore quia in consequatur eligendi aut libero labore. Est nihil quaerat non voluptates voluptatem qui officiis totam. Qui officiis tempore quo labore dolore sit internos quia aut neque quasi ab doloribus cumque. At officiis voluptatem est aperiam doloribus qui cupiditate quaerat sed sint mollitia qui explicabo perferendis.
-      </div>
-      <p>
-        <h3>
-        Recently Uploaded Videos 
-        </h3>
-      </p>
-      <div>
-        {% for video in videos %}
-          {% include 'videolist.html' %}
-        {% endfor %}
-      </div>
+    Et inventore quia in consequatur eligendi aut libero labore. Est nihil quaerat non voluptates voluptatem qui officiis totam. Qui officiis tempore quo labore dolore sit internos quia aut neque quasi ab doloribus cumque. At officiis voluptatem est aperiam doloribus qui cupiditate quaerat sed sint mollitia qui explicabo perferendis.
+    </div>
+      
+    <p>
+      <h3>
+      Recently Uploaded Videos 
+      </h3>
+    </p>
+    <div>
+      {% for video in videos %}
+        {% include 'videolist.html' %}
+       {% endfor %}
+    </div>
         
-    </body>
-  
+  </body>
 </html>
